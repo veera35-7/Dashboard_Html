@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: #1e293b;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .sidebar a.active,
+        .sidebar a:hover {
+            background: #334155;
+            color: #fff;
+        }
+
+        /* Main */
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>My App</h2>
+    <a class="nav-link active" onclick="showPage('dashboard')">Dashboard</a>
+    <a class="nav-link" onclick="showPage('users')">Users</a>
+    <a class="nav-link" onclick="showPage('reports')">Reports</a>
+    <a class="nav-link" onclick="showPage('payments')">Payments</a>
+    <a class="nav-link" onclick="showPage('settings')">Settings</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <div class="header">
+        <h2 id="pageTitle">Dashboard</h2>
+        <p>Welcome, Veera 👋</p>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="page active">
+        <div class="cards">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>1,250</p>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>₹85,000</p>
+            </div>
+            <div class="card">
+                <h3>Active Courses</h3>
+                <p>18</p>
+            </div>
+            <div class="card">
+                <h3>Pending Tasks</h3>
+                <p>6</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users -->
+    <div id="users" class="page">
+        <h3>Users Page</h3>
+        <p>Manage users here.</p>
+    </div>
+
+    <!-- Reports -->
+    <div id="reports" class="page">
+        <h3>Reports Page</h3>
+        <p>View reports and analytics.</p>
+        <hr>
+        <footer><a href="LearnHtml.html"> Learn HTML </a></footer>
+        </div>
+
+    <!-- Payments -->
+    <div id="payments" class="page">
+        <h3>Payments Page</h3>
+        <p>Payment history and billing.</p>
+    </div>
+
+    <!-- Settings -->
+    <div id="settings" class="page">
+        <h3>Settings Page</h3>
+        <p>Application settings.</p>
+    </div>
+
+</div>
+
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+        // Remove active class from links
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
+
+        // Highlight clicked link
+        event.target.classList.add('active');
+
+        // Update title
+        document.getElementById('pageTitle').innerText =
+            pageId.charAt(0).toUpperCase() + pageId.slice(1);
+    }
+</script>
+
+</body>
+</html>
