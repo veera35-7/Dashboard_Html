@@ -178,8 +178,11 @@
         // Show selected page
         document.getElementById(pageId).classList.add('active');
 
-        // Highlight clicked link
-        event.target.classList.add('active');
+        // SAFE event handling (no HTML change)
+        var e = window.event;
+        if (e && e.target) {
+            e.target.classList.add('active');
+        }
 
         // Update title
         document.getElementById('pageTitle').innerText =
