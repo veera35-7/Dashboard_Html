@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const MONGODB_URI = 'mongodb+srv://212cs032:tfsur2a0AN2UeMKt@cluster0.xem3i9f.mongodb.net/dashboard';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://212cs032:tfsur2a0AN2UeMKt@cluster0.xem3i9f.mongodb.net/dashboard';
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
