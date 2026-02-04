@@ -326,8 +326,8 @@
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
     </div>
-id="adminPanel" style="display: none;"></div>
-        <div 
+
+    <div id="adminPanel" style="display: none;"></div> 
     <!-- Dashboard -->
     <div id="dashboard" class="page active">
         <div class="cards">
@@ -381,6 +381,8 @@ id="adminPanel" style="display: none;"></div>
 
 </div>
 </div>
+
+<script>
 // MongoDB Connection (Backend API)
     const API_URL = window.location.hostname === 'localhost' 
         ? 'http://localhost:5000/api'
