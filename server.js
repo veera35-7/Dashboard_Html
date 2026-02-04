@@ -24,7 +24,7 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // JWT Secret
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-env';
 
 // User Schema
 const userSchema = new mongoose.Schema({
