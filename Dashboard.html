@@ -382,9 +382,9 @@ id="adminPanel" style="display: none;"></div>
 </div>
 </div>
 // MongoDB Connection (Backend API)
-    const API_URL = process.env.NODE_ENV === 'production' 
-        ? 'https://your-vercel-backend-url.vercel.app/api'
-        : '/api'; // Change to your backend API endpoint
+    const API_URL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:5000/api'
+        : '/api';
     // Authentication Variables
     let currentUser = null;
     let isSignUp = false;
